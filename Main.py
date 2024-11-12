@@ -98,4 +98,7 @@ async def on_ready():
 
 
 # Rodar o bot
-bot.run(TOKEN)
+try:
+    bot.run(TOKEN)
+except Exception as e:
+    log_register(f"Ocorreu um erro: {str(e)}")
