@@ -15,8 +15,9 @@ TOKEN = credetials.get('TOKEN')
 intents = discord.Intents.default()
 # Habilitar intents para guilds
 intents.guilds = True
+intents.members = True
 # Habilitar intents para mensagens
-intents.messages = True
+intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
