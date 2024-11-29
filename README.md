@@ -1,9 +1,12 @@
 # Bot para notificação de Lives no Discord
 
 ## Como funciona?
-O bot tem a função de enviar mensagem em um canal específico do Discord quando ele verificar que um streamer determinado iniciou uma live.
+
+O bot tem a função de enviar mensagem em um canal específico do Discord quando ele verificar que um streamer determinado
+iniciou uma live.
 
 ## O que é necessário?
+
 - Python (versão 3.12 ou superior) instalado e configurado com o pip
 - Packages do Discord, Requests e datetime para o funcionamento do bot
 - Um editor de texto ou, preferencialmente, uma IDE
@@ -18,6 +21,7 @@ O bot tem a função de enviar mensagem em um canal específico do Discord quand
 4. ...
 
 ## Tecnologias utilizadas
+
 - PyCharm
 - Python
 - Discord Developer Portal
