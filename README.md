@@ -10,7 +10,7 @@ iniciou uma live.
 - Python (versão 3.12 ou superior) instalado e configurado com o pip
 - Packages do Discord, Requests e datetime para o funcionamento do bot
 - Um editor de texto ou, preferencialmente, uma IDE
-- Ter uma conta no discord e Twitch e acesso ao Discord Developer Portal e ao Console da Twitch
+- Ter uma conta no discord e Twitch e1 acesso ao Discord Developer Portal e ao Console da Twitch
 - Ter um servidor como comunidade no discord e um canal de texto
 
 ## Passo a passo para colocar o bot para funcionar
