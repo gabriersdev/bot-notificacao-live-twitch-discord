@@ -104,15 +104,6 @@ async def check_stream_status():
       if current_stream_id not in history_lives_annoucement:
         log_register(f"ID da Live atual: {current_stream_id}. O ID atual não estava nos IDs anteriores.")
 
-        # Adiciona o ID da live atual à lista de anunciados
-        history_lives_annoucement.add(current_stream_id)
-
-        # Salva a lista atualizada em disco
-        buffer = io.StringIO()
-        json.dump(list(history_lives_annoucement), buffer)
-        with open("history_ids.json", "w") as file:
-          file.write(buffer.getvalue())
-
         if (messages):
           message = messages[int(random() * len(messages))]
           if message:
@@ -128,6 +119,15 @@ async def check_stream_status():
 
         log_register(f"Mensagem: {sender}")
         log_register(f"Mensagem de aviso de Live enviada!")
+
+        # Adiciona o ID da live atual à lista de anunciados
+        history_lives_annoucement.add(current_stream_id)
+
+        # Salva a lista atualizada em disco
+        buffer = io.StringIO()
+        json.dump(list(history_lives_annoucement), buffer)
+        with open("history_ids.json", "w") as file:
+          file.write(buffer.getvalue())
       else:
         log_register("O ID atual já foi anunciado.")
     else:
