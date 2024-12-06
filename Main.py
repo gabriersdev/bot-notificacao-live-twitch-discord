@@ -51,6 +51,7 @@ try:
     history_lives_annoucement = set(json.load(f))
 except FileNotFoundError:
   history_lives_annoucement = set()
+  log_register(f"O arquivo {history_file} não foi encontrado")
 except JSONDecodeError:
   log_register("JSONDecodeError: provavelmente o arquivo JSON está vazio.")
   history_lives_annoucement = set()
