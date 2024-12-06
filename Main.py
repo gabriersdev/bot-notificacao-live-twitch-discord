@@ -36,11 +36,13 @@ history_file = "history_ids.json"
 # Set de IDs já anunciados
 history_lives_annoucement = set()
 
+
 # Registra os logs
 def log_register(message):
   moment = datetime.now()
   print(f"{moment} {message}")
   open("logs.txt", "a").write(f"{moment} {message}\n")
+
 
 # Carrega os IDs dos lives já anunciados
 try:
@@ -52,6 +54,7 @@ except JSONDecodeError:
   log_register("JSONDecodeError: provavelmente o arquivo JSON está vazio.")
   history_lives_annoucement = set()
 
+
 # Obter o Token de Acesso da Twitch
 def get_twitch_access_token():
   url = "https://id.twitch.tv/oauth2/token"
@@ -62,6 +65,7 @@ def get_twitch_access_token():
   }
   response = requests.post(url, params=params)
   return response.json().get("access_token")
+
 
 # Verificar se o canal está ao vivo e retornar o ID da live
 def get_stream_id():
@@ -76,6 +80,7 @@ def get_stream_id():
     return data[0].get("id")  # ID único da live atual
   return None
 
+
 # Verificar se o canal está ao vivo
 def is_stream_live():
   url = f"https://api.twitch.tv/helix/streams?user_login={TWITCH_USERNAME}"
@@ -86,6 +91,7 @@ def is_stream_live():
   response = requests.get(url, headers=headers)
   data = response.json().get("data")
   return data and data[0].get("type") == "live"
+
 
 # Tarefa de Verificação Periódica
 @tasks.loop(minutes=0.5)
@@ -114,7 +120,7 @@ async def check_stream_status():
         else:
           message = f"O canal {TWITCH_USERNAME} está ao vivo! Assista aqui:"
 
-        sender = f"@everyone {message} https://twitch.tv/{TWITCH_USERNAME}"
+        sender = f"{message} https://twitch.tv/{TWITCH_USERNAME}"
         await channel.send(sender)
 
         log_register(f"Mensagem: {sender}")
@@ -136,6 +142,7 @@ async def check_stream_status():
   else:
     print(f"O streamer {TWITCH_USERNAME} não está ao vivo.")
 
+
 @bot.event
 async def on_ready():
   log_register(f"Bot conectado como {bot.user}")
@@ -144,6 +151,7 @@ async def on_ready():
     check_stream_status.start()
   except Exception as error:
     log_register(f"Um erro ocorreu: {error}")
+
 
 # Rodar o bot
 try:
