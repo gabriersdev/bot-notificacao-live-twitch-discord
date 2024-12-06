@@ -120,7 +120,7 @@ async def check_stream_status():
         else:
           message = f"O canal {TWITCH_USERNAME} está ao vivo! Assista aqui:"
 
-        sender = f"{message} https://twitch.tv/{TWITCH_USERNAME}"
+        sender = f"@everyone {message} https://twitch.tv/{TWITCH_USERNAME}"
         await channel.send(sender)
 
         log_register(f"Mensagem: {sender}")
