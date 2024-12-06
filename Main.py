@@ -41,12 +41,13 @@ history_lives_annoucement = set()
 def log_register(message):
   moment = datetime.now()
   print(f"{moment} {message}")
-  open("logs.txt", "a").write(f"{moment} {message}\n")
+  with open("logs.txt", "a", encoding="utf-8") as file:
+    file.write(f"{moment} {message}\n")
 
 
 # Carrega os IDs dos lives já anunciados
 try:
-  with open(history_file, "r") as f:
+  with open(history_file, "r", encoding="utf-8") as f:
     history_lives_annoucement = set(json.load(f))
 except FileNotFoundError:
   history_lives_annoucement = set()
@@ -120,6 +121,8 @@ async def check_stream_status():
         else:
           message = f"O canal {TWITCH_USERNAME} está ao vivo! Assista aqui:"
 
+        message = message.encode('charmap', errors='replace').decode('charmap')
+
         sender = f"@everyone {message} https://twitch.tv/{TWITCH_USERNAME}"
         await channel.send(sender)
 
@@ -132,7 +135,7 @@ async def check_stream_status():
         # Salva a lista atualizada em disco
         buffer = io.StringIO()
         json.dump(list(history_lives_annoucement), buffer)
-        with open("history_ids.json", "w") as file:
+        with open("history_ids.json", "w", encoding="utf-8") as file:
           file.write(buffer.getvalue())
       else:
         log_register("O ID atual já foi anunciado.")
