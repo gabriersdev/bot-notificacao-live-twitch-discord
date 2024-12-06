@@ -110,7 +110,7 @@ async def check_stream_status():
       if current_stream_id not in history_lives_annoucement:
         log_register(f"ID da Live atual: {current_stream_id}. O ID atual não estava nos IDs anteriores.")
 
-        if (messages):
+        if messages:
           message = messages[int(random() * len(messages))]
           if message:
             if message.count("{username}"):
