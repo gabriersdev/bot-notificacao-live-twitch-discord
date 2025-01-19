@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este bot envia mensagens em um canal específico do Discord sempre que um streamer determinado iniciar uma live.
+Bot que envia mensagens em um canal específico do Discord sempre que um streamer determinado iniciar uma live.
 
 ## Como funciona?
 
