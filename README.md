@@ -42,9 +42,9 @@ Bot que envia mensagens em um canal específico do Discord sempre que um streame
      - Mention everyone
      - Use external emojis
      - Use external stickers
-   - Adicione o bot ao servidor desejado através da URL que é gerada. 
-   > [!IMPORTANT]
-   > É importante que tanto o servidor, quanto o canal em que as notificação serão enviadas permita que o bot tenha as mesmas permissões definidas para que as mensagens sejam enviadas.  
+   - Adicione o bot ao servidor desejado através da URL que é gerada.
+  > [!IMPORTANT]
+  > É importante que tanto o servidor, quanto o canal em que as notificação serão enviadas permita que o bot tenha as mesmas permissões definidas para que as mensagens sejam enviadas.  
 
 3. **Crie um App no Console da Twitch:**
    - Acesse o [Console da Twitch](https://dev.twitch.tv/docs/authentication/register-app/).
